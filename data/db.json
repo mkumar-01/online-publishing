@@ -11,7 +11,9 @@
       },
       "views": 305,
       "userId": 121,
-      "image": "assets/images/image-1.jpg"
+      "image": "assets/images/image-1.jpg",
+      "authorName": "Girdhar",
+      "publishedDate": "01 Apr 2025"
     },
     {
       "id": 2,
@@ -23,7 +25,10 @@
         "dislikes": 32
       },
       "views": 4884,
-      "userId": 91
+      "userId": 91,
+      "image": "assets/images/image-2.jpg",
+      "authorName": "Ravish Kumar",
+      "publishedDate": "02 Apr 2025"
     },
     {
       "id": 3,
@@ -35,7 +40,10 @@
         "dislikes": 39
       },
       "views": 4152,
-      "userId": 16
+      "userId": 16,
+      "image": "assets/images/image-3.jpg",
+      "authorName": "Chitra Tirpathi",
+      "publishedDate": "03 Apr 2025"
     },
     {
       "id": 4,
@@ -47,7 +55,10 @@
         "dislikes": 18
       },
       "views": 4548,
-      "userId": 47
+      "userId": 47,
+      "image": "assets/images/image-4.jpg",
+      "authorName": "Gulzar",
+      "publishedDate": "04 Apr 2025"
     },
     {
       "id": 5,
@@ -59,7 +70,10 @@
         "dislikes": 30
       },
       "views": 626,
-      "userId": 131
+      "userId": 131,
+      "image": "assets/images/image-5.jpg",
+      "authorName": "Rahul Gandhi",
+      "publishedDate": "05 Apr 2025"
     },
     {
       "id": 6,
@@ -71,7 +85,10 @@
         "dislikes": 8
       },
       "views": 38,
-      "userId": 98
+      "userId": 98,
+      "image": "assets/images/image-6.jpg",
+      "authorName": "Manohar Lal Khattar",
+      "publishedDate": "06 Apr 2025"
     },
     {
       "id": 7,
@@ -83,7 +100,10 @@
         "dislikes": 26
       },
       "views": 168,
-      "userId": 70
+      "userId": 70,
+      "image": "assets/images/image-7.jpg",
+      "authorName": "Amitaab Bacchan",
+      "publishedDate": "07 Apr 2025"
     },
     {
       "id": 8,
@@ -95,7 +115,10 @@
         "dislikes": 36
       },
       "views": 2116,
-      "userId": 67
+      "userId": 67,
+      "image": "assets/images/image-8.jpg",
+      "authorName": "Sharukh Khan",
+      "publishedDate": "08 Apr 2025"
     },
     {
       "id": 9,
@@ -107,7 +130,10 @@
         "dislikes": 18
       },
       "views": 2235,
-      "userId": 82
+      "userId": 82,
+      "image": "assets/images/image-9.jpg",
+      "authorName": "Salman Khan",
+      "publishedDate": "09 Apr 2025"
     },
     {
       "id": 10,
@@ -119,7 +145,10 @@
         "dislikes": 3
       },
       "views": 4504,
-      "userId": 144
+      "userId": 144,
+      "image": "assets/images/image-10.png",
+      "authorName": "Amir Khan",
+      "publishedDate": "10 Apr 2025"
     },
     {
       "id": 11,
@@ -131,7 +160,10 @@
         "dislikes": 8
       },
       "views": 984,
-      "userId": 43
+      "userId": 43,
+      "image": "assets/images/image-1.jpg",
+      "authorName": "Ajay Devgon",
+      "publishedDate": "11 Apr 2025"
     },
     {
       "id": 12,
@@ -143,7 +175,10 @@
         "dislikes": 45
       },
       "views": 480,
-      "userId": 82
+      "userId": 82,
+      "image": "assets/images/image-2.jpg",
+      "authorName": "Akshay Kumar",
+      "publishedDate": "12 Apr 2025"
     },
     {
       "id": 13,
@@ -155,7 +190,10 @@
         "dislikes": 39
       },
       "views": 3038,
-      "userId": 199
+      "userId": 199,
+      "image": "assets/images/image-4.jpg",
+      "authorName": "Narender Modi",
+      "publishedDate": "13 Apr 2025"
     },
     {
       "id": 14,
@@ -167,7 +205,10 @@
         "dislikes": 17
       },
       "views": 721,
-      "userId": 140
+      "userId": 140,
+      "image": "assets/images/image-5.jpg",
+      "authorName": "Akhilesh Yadav",
+      "publishedDate": "14 Apr 2025"
     },
     {
       "id": 15,
@@ -179,7 +220,10 @@
         "dislikes": 12
       },
       "views": 2911,
-      "userId": 1
+      "userId": 1,
+      "image": "assets/images/image-6.jpg",
+      "authorName": "Pankaj Upadhyay",
+      "publishedDate": "15 Apr 2025"
     },
     {
       "id": 16,
@@ -191,7 +235,10 @@
         "dislikes": 11
       },
       "views": 2019,
-      "userId": 99
+      "userId": 99,
+      "image": "assets/images/image-7.jpg",
+      "authorName": "Rakesh Tickat",
+      "publishedDate": "16 Apr 2025"
     },
     {
       "id": 17,
@@ -203,7 +250,10 @@
         "dislikes": 31
       },
       "views": 511,
-      "userId": 30
+      "userId": 30,
+      "image": "assets/images/image-8.jpg",
+      "authorName": "Anjana Om Kashyap",
+      "publishedDate": "17 Apr 2025"
     },
     {
       "id": 18,
@@ -215,7 +265,10 @@
         "dislikes": 29
       },
       "views": 1127,
-      "userId": 97
+      "userId": 97,
+      "image": "assets/images/image-9.jpg",
+      "authorName": "Lalu Yadav",
+      "publishedDate": "18 Apr 2025"
     },
     {
       "id": 19,
@@ -227,7 +280,10 @@
         "dislikes": 2
       },
       "views": 2128,
-      "userId": 143
+      "userId": 143,
+      "image": "assets/images/image-10.png",
+      "authorName": "Farukh Shaikh",
+      "publishedDate": "19 Apr 2025"
     },
     {
       "id": 20,
@@ -239,7 +295,10 @@
         "dislikes": 29
       },
       "views": 4280,
-      "userId": 12
+      "userId": 12,
+      "image": "assets/images/image-1.jpg",
+      "authorName": "Sadguru",
+      "publishedDate": "20 Apr 2025"
     },
     {
       "id": 21,
@@ -251,7 +310,10 @@
         "dislikes": 13
       },
       "views": 2738,
-      "userId": 136
+      "userId": 136,
+      "image": "assets/images/image-2.jpg",
+      "authorName": "Ram Dev ",
+      "publishedDate": "21 Apr 2025"
     },
     {
       "id": 22,
@@ -263,7 +325,10 @@
         "dislikes": 20
       },
       "views": 4587,
-      "userId": 183
+      "userId": 183,
+      "image": "assets/images/image-3.jpg",
+      "authorName": "Sonam Kapoor",
+      "publishedDate": "22 Apr 2025"
     },
     {
       "id": 23,
@@ -275,7 +340,10 @@
         "dislikes": 16
       },
       "views": 1634,
-      "userId": 206
+      "userId": 206,
+      "image": "assets/images/image-4.jpg",
+      "authorName": "Alia Bhatt",
+      "publishedDate": "23 Apr 2025"
     },
     {
       "id": 24,
@@ -287,7 +355,10 @@
         "dislikes": 12
       },
       "views": 97,
-      "userId": 124
+      "userId": 124,
+      "image": "assets/images/image-5.jpg",
+      "authorName": "Madhuri Dixit",
+      "publishedDate": "24 Apr 2025"
     },
     {
       "id": 25,
@@ -299,7 +370,10 @@
         "dislikes": 16
       },
       "views": 2437,
-      "userId": 148
+      "userId": 148,
+      "image": "assets/images/image-6.jpg",
+      "authorName": "Dhirender Shashtri",
+      "publishedDate": "25 Apr 2025"
     },
     {
       "id": 26,
@@ -311,7 +385,10 @@
         "dislikes": 3
       },
       "views": 4070,
-      "userId": 156
+      "userId": 156,
+      "image": "assets/images/image-7.jpg",
+      "authorName": "Swami ",
+      "publishedDate": "26 Apr 2025"
     },
     {
       "id": 27,
@@ -323,7 +400,10 @@
         "dislikes": 35
       },
       "views": 3218,
-      "userId": 95
+      "userId": 95,
+      "image": "assets/images/image-8.jpg",
+      "authorName": "Krishn Kumar",
+      "publishedDate": "27 Apr 2025"
     },
     {
       "id": 28,
@@ -335,7 +415,10 @@
         "dislikes": 18
       },
       "views": 3531,
-      "userId": 19
+      "userId": 19,
+      "image": "assets/images/image-9.jpg",
+      "authorName": "Naresh Kumar",
+      "publishedDate": "28 Apr 2025"
     },
     {
       "id": 29,
@@ -347,7 +430,10 @@
         "dislikes": 1
       },
       "views": 43,
-      "userId": 74
+      "userId": 74,
+      "image": "assets/images/image-10.png",
+      "authorName": "Om Prakash",
+      "publishedDate": "29 Apr 2025"
     },
     {
       "id": 30,
@@ -359,7 +445,10 @@
         "dislikes": 30
       },
       "views": 3558,
-      "userId": 177
+      "userId": 177,
+      "image": "assets/images/image-10.png",
+      "authorName": "Shweta Tiwari",
+      "publishedDate": "30 Apr 2025"
     }
   ],
   "comments": [

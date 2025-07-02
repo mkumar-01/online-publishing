@@ -10,6 +10,8 @@ export interface Post {
     views: number;
     userId: number;
     image: string;
+    authorName: string;
+    publishedDate: string;
 }
 
 // This matches the API response

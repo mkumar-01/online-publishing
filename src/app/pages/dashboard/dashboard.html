@@ -1,10 +1,39 @@
-@let items = posts();
+@let items = posts(); @let maxPoplar = mostPopular();
+<div class="max-popular">
+  <img
+    [src]="maxPoplar?.image"
+    [alt]="maxPoplar?.title"
+    style="width: 100%; max-height: 300px; margin-bottom: 20px"
+  />
+  <h3>{{maxPoplar?.title}}</h3>
+  <p>{{maxPoplar?.body}}</p>
+  <ol class="post-meta">
+    <li><strong>Published:</strong> {{maxPoplar?.publishedDate}}</li>
+    <li><strong>Likes:</strong> {{maxPoplar?.reactions?.likes}}</li>
+    <li><strong>Dislikes:</strong> {{maxPoplar?.reactions?.dislikes}}</li>
+    <li><strong>Author Name:</strong> {{maxPoplar?.authorName}}</li>
+  </ol>
+</div>
 <ul class="allposts">
   @for (item of items; track $index){
   <li>
-    <h3>{{item?.title}}</h3>
-    <p>{{item?.body}}</p>
-    <img [src]="item?.image" alt="Post Image" />
+    <div class="des">
+      <h3>{{item?.title}}</h3>
+      <p>{{item?.body}}</p>
+      <ol class="post-meta">
+        <li><strong>Published:</strong> {{item?.publishedDate}}</li>
+        <li><strong>Likes:</strong> {{item?.reactions?.likes}}</li>
+        <li><strong>Dislikes:</strong> {{item?.reactions?.dislikes}}</li>
+        <li><strong>Author Name:</strong> {{item?.authorName}}</li>
+      </ol>
+    </div>
+    <div class="img">
+      <img
+        [src]="item?.image"
+        [alt]="item?.title"
+        style="width: 380px; height: 200px"
+      />
+    </div>
   </li>
   }
 </ul>
