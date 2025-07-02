@@ -3,13 +3,13 @@ import { Routes } from '@angular/router';
 import { PageNotFound } from './pages/page-not-found/page-not-found';
 export const routes: Routes = [
     {
-        path: '',
-        loadComponent: () => import('./pages/login/login').then(m => m.Login)
+        path: 'dashboard',
+        loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
     },
-    {
-        path: 'login',
-        loadComponent: () => import('./pages/login/login').then(m => m.Login)
-    },
+    // {
+    //     path: 'login',
+    //     loadComponent: () => import('./pages/login/login').then(m => m.Login)
+    // },
     // {
     //     path: 'register',
     //     loadComponent: () => import('./pages/registration/registration').then(m => m.Registration)
@@ -18,12 +18,12 @@ export const routes: Routes = [
     //     path: 'counter',
     //     loadComponent: () => import('./components/counter/counter').then(m => m.CounterComponent)
     // },
-    // {
+    {
 
-    //     path: 'profile',
-    //     loadComponent: () => import('./pages/profile/profile').then(m => m.Profile),
-    //     canActivate: [authGuard]
-    // },
+        path: 'profile',
+        loadComponent: () => import('./pages/profile/profile').then(m => m.Profile),
+        // canActivate: [authGuard]
+    },
     {
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),

@@ -1,1 +1,9 @@
-<p>Profile works</p>
+<div class="card" style="width: 400px" *ngIf="auth.user$ | async as user">
+  <img [src]="user?.picture" class="card-img-top" [alt]="user?.name" />
+  <div class="card-body">
+    <h5 class="card-title">{{user?.name}}</h5>
+    <p class="card-text">
+      User Email: <a href="mailto:{{user?.email}}"> {{user?.email}}</a>
+    </p>
+  </div>
+</div>

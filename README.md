@@ -5,6 +5,10 @@ password:
 
 github link = https://github.com/mkumar-01/online-publishing.git
 
+auth0 setting links
+https://manage.auth0.com/dashboard/us/dev-b1tmymqymzxizcji/applications
+https://manage.auth0.com/dashboard/us/dev-b1tmymqymzxizcji/applications/3twCuwer4HTGm4lMz6nCGVV0g1dZTBGA/settings
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
 
