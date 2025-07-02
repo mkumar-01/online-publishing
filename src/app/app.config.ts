@@ -1,4 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { provideAuth0 } from '@auth0/auth0-angular';
 import { provideRouter } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
@@ -17,6 +18,13 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection(),
     provideRouter(routes),
     // provideHttpClient(withInterceptors([authInterceptor])),
+    provideAuth0({
+      domain: 'dev-b1tmymqymzxizcji.us.auth0.com',
+      clientId: '3twCuwer4HTGm4lMz6nCGVV0g1dZTBGA',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
     provideStore(reducers),
     provideEffects(CounterEffects),
     importProvidersFrom(StoreDevtoolsModule.instrument({ maxAge: 25 }))
