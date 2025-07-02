@@ -1,1 +1,6 @@
-<h1>Hello Dashboard</h1>
+@let allposts = posts();
+<ul class="allposts">
+  @for (item of allposts; track $index){
+  <li>{{item.title}}</li>
+  }
+</ul>

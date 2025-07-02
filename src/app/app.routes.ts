@@ -3,6 +3,10 @@ import { Routes } from '@angular/router';
 import { PageNotFound } from './pages/page-not-found/page-not-found';
 export const routes: Routes = [
     {
+        path: '',
+        loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
+    },
+    {
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
     },
