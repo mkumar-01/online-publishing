@@ -28,7 +28,7 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideStore(reducers),
-    provideEffects(CounterEffects, PostsEffects),
+    provideEffects([CounterEffects, PostsEffects]),
     importProvidersFrom(StoreDevtoolsModule.instrument({ maxAge: 25 }))
   ]
 };

@@ -1,9 +1,10 @@
-@let allposts = posts();
+@let items = posts();
 <ul class="allposts">
-  @for (item of allposts; track $index){
+  @for (item of items; track $index){
   <li>
     <h3>{{item?.title}}</h3>
     <p>{{item?.body}}</p>
+    <img [src]="item?.image" alt="Post Image" />
   </li>
   }
 </ul>

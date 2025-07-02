@@ -1,43 +1,34 @@
 import { createReducer, on } from '@ngrx/store';
 import * as PostsActions from '../actions/posts.actions';
-import { PostResponse } from '../models/posts.model';
+import { Post } from '../models/posts.model';
 
 export interface PostsState {
-    data: PostResponse;
+    data: Post[];
     loading: boolean;
     error: any;
 }
 
 export const initialState: PostsState = {
-    data: {
-        posts: [],
-        total: 0,
-        skip: 0,
-        limit: 0
-    },
+    data: [],
     loading: false,
     error: null
 };
 
 export const postsReducer = createReducer(
     initialState,
-
     on(PostsActions.loadPosts, state => ({
         ...state,
         loading: true,
         error: null
     })),
-
     on(PostsActions.loadPostsSuccess, (state, { data }) => ({
         ...state,
         loading: false,
-        data
+        data: data
     })),
-
     on(PostsActions.loadPostsFailure, (state, { error }) => ({
         ...state,
         loading: false,
         error
     }))
-
 );

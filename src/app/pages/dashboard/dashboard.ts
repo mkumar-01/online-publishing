@@ -14,18 +14,19 @@ import { CommonModule } from '@angular/common';
 })
 export class Dashboard implements OnInit {
   private store = inject<Store<AppState>>(Store);
-  private endPoint = 'https://dummyjson.com/posts';
+  // private endPoint = 'https://dummyjson.com/posts';
+  private endPoint = 'http://localhost:3000/posts';
   public allData = signal<PostResponse | null>(null);
   public posts = signal<Post[] | null>(null);
 
   ngOnInit(): void {
     this.store.dispatch(PostsActions.loadPosts({ endPoint: this.endPoint }));
 
-    this.store.select(state => state.posts.data).subscribe(res => {
-      if (res?.posts?.length) {
+    this.store.select(state => state.posts).subscribe(res => {
+      if (res) {
         this.allData.set(res);
 
-        this.posts.set(res.posts)
+        this.posts.set(res.data)
       }
       console.log('Loaded data:', this.posts());
     });
