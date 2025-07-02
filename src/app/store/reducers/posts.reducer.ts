@@ -22,32 +22,22 @@ export const initialState: PostsState = {
 export const postsReducer = createReducer(
     initialState,
 
-    on(PostsActions.loadProperties, state => ({
+    on(PostsActions.loadPosts, state => ({
         ...state,
         loading: true,
         error: null
     })),
 
-    on(PostsActions.loadPropertiesSuccess, (state, { data }) => ({
+    on(PostsActions.loadPostsSuccess, (state, { data }) => ({
         ...state,
         loading: false,
         data
     })),
 
-    on(PostsActions.loadPropertiesFailure, (state, { error }) => ({
+    on(PostsActions.loadPostsFailure, (state, { error }) => ({
         ...state,
         loading: false,
         error
     }))
 
-    // Uncomment if you add markFavourite feature
-    // on(PostsActions.markFavourite, (state, { id }) => ({
-    //   ...state,
-    //   data: {
-    //     ...state.data,
-    //     posts: state.data.posts.map(post =>
-    //       post.id === id ? { ...post, isFavourite: true } : post
-    //     )
-    //   }
-    // }))
 );

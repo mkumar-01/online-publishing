@@ -10,16 +10,16 @@ export class PostsEffects {
     private actions$ = inject(Actions);
     private http = inject(HttpService);
 
-    loadProperties$ = createEffect(() =>
+    loadPosts$ = createEffect(() =>
         this.actions$.pipe(
-            ofType(PostsActions.loadProperties),
+            ofType(PostsActions.loadPosts),
             mergeMap(({ endPoint }) =>
                 this.http.get<PostResponse>(endPoint).pipe(
                     map((response: PostResponse) =>
-                        PostsActions.loadPropertiesSuccess({ data: response }) // ✅ send full object
+                        PostsActions.loadPostsSuccess({ data: response })
                     ),
                     catchError(error =>
-                        of(PostsActions.loadPropertiesFailure({ error }))
+                        of(PostsActions.loadPostsFailure({ error }))
                     )
                 )
             )

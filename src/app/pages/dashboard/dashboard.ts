@@ -19,7 +19,7 @@ export class Dashboard implements OnInit {
   public posts = signal<Post[] | null>(null);
 
   ngOnInit(): void {
-    this.store.dispatch(PostsActions.loadProperties({ endPoint: this.endPoint }));
+    this.store.dispatch(PostsActions.loadPosts({ endPoint: this.endPoint }));
 
     this.store.select(state => state.posts.data).subscribe(res => {
       if (res?.posts?.length) {

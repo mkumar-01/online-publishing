@@ -1,6 +1,9 @@
 @let allposts = posts();
 <ul class="allposts">
   @for (item of allposts; track $index){
-  <li>{{item.title}}</li>
+  <li>
+    <h3>{{item?.title}}</h3>
+    <p>{{item?.body}}</p>
+  </li>
   }
 </ul>
