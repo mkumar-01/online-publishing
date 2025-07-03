@@ -1,0 +1,10 @@
+<input
+  type="text"
+  name="search"
+  id="search"
+  class="form-control"
+  placeholder="Search..."
+  style="border: 1px solid #444; height: 52px"
+  #ref
+  (input)="onSearch($any($event.target).value)"
+/>

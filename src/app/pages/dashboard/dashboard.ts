@@ -6,11 +6,12 @@ import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from '../../components/paginate/paginate.component';
 import { ActivatedRoute } from '@angular/router';
+import { SearchComponent } from '../../components/search/search.component';
 
 @Component({
   selector: 'dashboard',
   standalone: true,
-  imports: [CommonModule, PaginateComponent],
+  imports: [CommonModule, PaginateComponent, SearchComponent],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -67,6 +68,22 @@ export class Dashboard implements OnInit {
     this.page.set(newPage);
     const finalEndPoint = `${this.endPoint}?_page=${newPage}&_per_page=${this.pagePage()}`;
     this.store.dispatch(PostsActions.loadPosts({ endPoint: finalEndPoint }));
+  }
+
+  search(val: string) {
+    const value = val.trim().toLowerCase();
+    const articles = this.allData()?.data;
+    if (value !== "" && articles !== undefined) {
+      const searchResult: Post[] = articles.filter(post =>
+        post.title.toLowerCase().includes(value) ||
+        post.body.toLowerCase().includes(value) ||
+        post.tags.some(tag => tag.toLowerCase().includes(value.toLowerCase()))
+      )
+      this.posts.set(searchResult)
+    } else {
+
+      this.posts.set(articles ? articles : [])
+    }
   }
 
 

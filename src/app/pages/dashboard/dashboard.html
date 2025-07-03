@@ -7,6 +7,7 @@
   ></paginate>
 </div>
 }
+<search (searchTerm)="search($event)"></search>
 <div class="max-popular">
   <h1>Most Popular on This Page</h1>
   <img
@@ -24,22 +25,32 @@
       >
     </li>
     <li><strong>Dislikes:</strong> {{maxPoplar?.reactions?.dislikes}}</li>
+    <li>
+      <strong>Tags: </strong>
+      @if (maxPoplar !== null) { @for (tag of maxPoplar.tags; track $index) {
+      <span>{{ tag }}&nbsp;|&nbsp;</span>
+      } }
+    </li>
     <li><strong>Author Name:</strong> {{maxPoplar?.authorName}}</li>
     <li><a href="#">Read More...</a></li>
   </ol>
 </div>
 <ul class="allposts">
-  @for (item of items; track $index){
+  @if(items?.length){ @for (item of items; track $index){
   <li>
     <div class="des">
       <h3>{{item?.title}}</h3>
-      <p>{{item?.body}}</p>
+      <p>{{item?.body}} <a href="#">Read More...</a></p>
+      <p>
+        <strong>Tags: </strong> @for (tag of item.tags; track $index) {
+        <span>{{ tag }}&nbsp;|&nbsp;</span>
+        }
+      </p>
       <ol class="post-meta">
         <li><strong>Published:</strong> {{item?.publishedDate}}</li>
         <li><strong>Likes:</strong> {{item?.reactions?.likes}}</li>
         <li><strong>Dislikes:</strong> {{item?.reactions?.dislikes}}</li>
-        <li><strong>Author Name:</strong> {{item?.authorName}}</li>
-        <li><a href="#">Read More...</a></li>
+        <li><strong>Auth:</strong> {{item?.authorName}}</li>
       </ol>
     </div>
     <div class="img">
@@ -50,6 +61,8 @@
       />
     </div>
   </li>
+  } }@else {
+  <li>No Result Found</li>
   }
 </ul>
 @if(totalPost()!==undefined && totalPost() !==null ){
