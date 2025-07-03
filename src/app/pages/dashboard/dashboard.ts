@@ -52,15 +52,9 @@ export class Dashboard implements OnInit {
   findMostPopular() {
     const posts = this.posts();
     if (!posts || posts.length === 0) return;
-
-    // array.reduce(callbackFn, initialValue) => reduce function signature
-    // callbackFn detail => (accumulator, currentValue, index, array)
-
-
     const mostPopular = posts.reduce((max, post) =>
       post.reactions.likes > max.reactions.likes ? post : max
     );
-
     this.mostPopular.set(mostPopular);
   }
 
@@ -84,6 +78,26 @@ export class Dashboard implements OnInit {
     } else {
 
       this.posts.set(articles ? articles : [])
+    }
+  }
+
+  sort(element: Event) {
+    const val = element.target as HTMLInputElement;
+    let sortTerm = val.value.trim().toLowerCase();
+    this.sortResult(sortTerm)
+  }
+  sortResult(sortTerm: string) {
+
+    switch (sortTerm) {
+      case 'latest':
+        console.log("load date wise")
+
+        break;
+      case 'most popular':
+        console.log("load most liked wise")
+        break;
+      default:
+        console.log("load all")
     }
   }
 
