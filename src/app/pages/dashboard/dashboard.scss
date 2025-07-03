@@ -29,6 +29,9 @@ ol.post-meta {
     >li {
         border-right: 1px solid gray;
         padding-right: 16px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
 
         &:last-child {
             border-right: none;
@@ -40,6 +43,13 @@ ol.post-meta {
     margin-bottom: 44px;
     padding-bottom: 20px;
     border-bottom: 1px solid gray;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
 }
 
 .blink_text {

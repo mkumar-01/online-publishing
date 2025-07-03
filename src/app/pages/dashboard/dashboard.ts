@@ -77,6 +77,7 @@ export class Dashboard implements OnInit {
       const searchResult: Post[] = articles.filter(post =>
         post.title.toLowerCase().includes(value) ||
         post.body.toLowerCase().includes(value) ||
+        post.authorName.toLowerCase().includes(value) ||
         post.tags.some(tag => tag.toLowerCase().includes(value.toLowerCase()))
       )
       this.posts.set(searchResult)

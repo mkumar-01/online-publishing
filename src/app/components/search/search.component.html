@@ -1,10 +1,40 @@
-<input
-  type="text"
-  name="search"
-  id="search"
-  class="form-control"
-  placeholder="Search..."
-  style="border: 1px solid #444; height: 52px"
-  #ref
-  (input)="onSearch($any($event.target).value)"
-/>
+<div
+  class="input-group mb-3 input-group-lg"
+  style="border: 1px solid #444; border-radius: 8px"
+>
+  <span class="input-group-text material-icons fs-3" title="tags">search</span>
+  <input
+    type="text"
+    name="search"
+    id="search"
+    class="form-control border-0"
+    placeholder="Search..."
+    #ref
+    (input)="onSearch($any($event.target).value)"
+  />
+</div>
+
+<!-- <div class="input-group mb-3 input-group-lg">
+  <span class="input-group-text material-icons" title="tags">search</span>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Text input with dropdown button"
+    placeholder="Search..."
+  />
+  <button
+    class="btn btn-outline-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Dropdown
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider" /></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div> -->
