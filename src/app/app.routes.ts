@@ -10,18 +10,6 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
     },
-    // {
-    //     path: 'login',
-    //     loadComponent: () => import('./pages/login/login').then(m => m.Login)
-    // },
-    // {
-    //     path: 'register',
-    //     loadComponent: () => import('./pages/registration/registration').then(m => m.Registration)
-    // },
-    // {
-    //     path: 'counter',
-    //     loadComponent: () => import('./components/counter/counter').then(m => m.CounterComponent)
-    // },
     {
 
         path: 'profile',
@@ -42,6 +30,6 @@ export const routes: Routes = [
     //     loadComponent: () => import('./pages/create-post/create-post.component').then(m => m.CreatePostComponent),
     //     canActivate: [authGuard]
     // },
-    // { path: '**', component: PageNotFound }
+    { path: '**', component: PageNotFound }
 
 ];

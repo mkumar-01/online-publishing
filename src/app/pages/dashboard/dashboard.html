@@ -1,5 +1,7 @@
 @let items = posts(); @let maxPoplar = mostPopular();
+
 <div class="max-popular">
+  <h1>Most Popular</h1>
   <img
     [src]="maxPoplar?.image"
     [alt]="maxPoplar?.title"
@@ -9,9 +11,14 @@
   <p>{{maxPoplar?.body}}</p>
   <ol class="post-meta">
     <li><strong>Published:</strong> {{maxPoplar?.publishedDate}}</li>
-    <li><strong>Likes:</strong> {{maxPoplar?.reactions?.likes}}</li>
+    <li>
+      <span class="blink_text"
+        ><strong>Most Liked:</strong> {{maxPoplar?.reactions?.likes}}</span
+      >
+    </li>
     <li><strong>Dislikes:</strong> {{maxPoplar?.reactions?.dislikes}}</li>
     <li><strong>Author Name:</strong> {{maxPoplar?.authorName}}</li>
+    <li><a href="#">Read More...</a></li>
   </ol>
 </div>
 <ul class="allposts">
@@ -25,6 +32,7 @@
         <li><strong>Likes:</strong> {{item?.reactions?.likes}}</li>
         <li><strong>Dislikes:</strong> {{item?.reactions?.dislikes}}</li>
         <li><strong>Author Name:</strong> {{item?.authorName}}</li>
+        <li><a href="#">Read More...</a></li>
       </ol>
     </div>
     <div class="img">
