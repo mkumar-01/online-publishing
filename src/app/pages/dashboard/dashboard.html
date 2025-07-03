@@ -1,5 +1,12 @@
 @let items = posts(); @let maxPoplar = mostPopular();
-
+@if(totalPost()!==undefined && totalPost() !==null ){
+<div class="d-flex justify-content-center pt-4">
+  <paginate
+    [totalPost]="totalPost()"
+    (pageChange)="onPageChange($event)"
+  ></paginate>
+</div>
+}
 <div class="max-popular">
   <h1>Most Popular on This Page</h1>
   <img
@@ -45,8 +52,11 @@
   </li>
   }
 </ul>
-@if(totalPost()>0){
+@if(totalPost()!==undefined && totalPost() !==null ){
 <div class="d-flex justify-content-center pt-4">
-  <paginate [totalPost]="totalPost()"></paginate>
+  <paginate
+    [totalPost]="totalPost()"
+    (pageChange)="onPageChange($event)"
+  ></paginate>
 </div>
 }

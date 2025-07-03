@@ -12,5 +12,12 @@
                 background-color: #ffc107;
             }
         }
+
+        &.disabled {
+            a {
+                background-color: lightgray;
+            }
+
+        }
     }
 }

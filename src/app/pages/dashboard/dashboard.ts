@@ -5,7 +5,7 @@ import { Post, PostResponse } from '../../store/models/posts.model';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from '../../components/paginate/paginate.component';
-import { single } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'dashboard',
@@ -24,6 +24,9 @@ export class Dashboard implements OnInit {
   public totalPost = signal<number>(0);
   public page = signal<number>(1);
   public pagePage = signal<number>(10);
+  public activatedRoute = inject(ActivatedRoute);
+  public currentPage = signal<number | null>(null);
+
 
   ngOnInit(): void {
     const finalEndPonit = `${this.endPoint}?_page=${this.page()}&_per_page=${this.pagePage()}`;
@@ -32,15 +35,14 @@ export class Dashboard implements OnInit {
     this.store.select(state => state.posts.data).subscribe(res => {
       if (res) {
         this.allData.set(res);
-        console.log(res)
         this.posts.set(res.data)
       }
-      const length = this.posts()?.length;
-      if (length !== undefined) {
-        this.totalPost.set(length)
+      if (this.allData()?.items) {
+        const totalItem = this.allData()?.items as number;
+        this.totalPost.set(totalItem)
       }
       console.log("all data ", this.allData())
-      console.log("all posts ", this.posts())
+
       this.findMostPopular()
 
     });
@@ -59,6 +61,12 @@ export class Dashboard implements OnInit {
     );
 
     this.mostPopular.set(mostPopular);
+  }
+
+  onPageChange(newPage: number) {
+    this.page.set(newPage);
+    const finalEndPoint = `${this.endPoint}?_page=${newPage}&_per_page=${this.pagePage()}`;
+    this.store.dispatch(PostsActions.loadPosts({ endPoint: finalEndPoint }));
   }
 
 
