@@ -8,7 +8,7 @@ export const loadPosts = createAction(
 
 export const loadPostsSuccess = createAction(
     '[Post] Load Success',
-    props<{ data: Post[] }>()
+    props<{ data: PostResponse }>()
 );
 
 export const loadPostsFailure = createAction(

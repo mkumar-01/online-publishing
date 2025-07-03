@@ -1,15 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
 import * as PostsActions from '../actions/posts.actions';
-import { Post } from '../models/posts.model';
+import { Post, PostResponse } from '../models/posts.model';
 
 export interface PostsState {
-    data: Post[];
+    data: PostResponse | null;
     loading: boolean;
     error: any;
 }
 
 export const initialState: PostsState = {
-    data: [],
+    data: null,
     loading: false,
     error: null
 };

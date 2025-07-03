@@ -4,11 +4,13 @@ import * as PostsActions from '../../store/actions/posts.actions';
 import { Post, PostResponse } from '../../store/models/posts.model';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
+import { PaginateComponent } from '../../components/paginate/paginate.component';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PaginateComponent],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -19,18 +21,28 @@ export class Dashboard implements OnInit {
   public allData = signal<PostResponse | null>(null);
   public posts = signal<Post[] | null>(null);
   public mostPopular = signal<Post | null>(null);
+  public totalPost = signal<number>(0);
+  public page = signal<number>(1);
+  public pagePage = signal<number>(10);
 
   ngOnInit(): void {
-    this.store.dispatch(PostsActions.loadPosts({ endPoint: this.endPoint }));
+    const finalEndPonit = `${this.endPoint}?_page=${this.page()}&_per_page=${this.pagePage()}`;
+    this.store.dispatch(PostsActions.loadPosts({ endPoint: finalEndPonit }));
 
-    this.store.select(state => state.posts).subscribe(res => {
+    this.store.select(state => state.posts.data).subscribe(res => {
       if (res) {
         this.allData.set(res);
-
+        console.log(res)
         this.posts.set(res.data)
       }
-      console.log('Loaded data:', this.posts());
+      const length = this.posts()?.length;
+      if (length !== undefined) {
+        this.totalPost.set(length)
+      }
+      console.log("all data ", this.allData())
+      console.log("all posts ", this.posts())
       this.findMostPopular()
+
     });
 
   }
@@ -38,12 +50,15 @@ export class Dashboard implements OnInit {
     const posts = this.posts();
     if (!posts || posts.length === 0) return;
 
+    // array.reduce(callbackFn, initialValue) => reduce function signature
+    // callbackFn detail => (accumulator, currentValue, index, array)
+
+
     const mostPopular = posts.reduce((max, post) =>
       post.reactions.likes > max.reactions.likes ? post : max
     );
 
     this.mostPopular.set(mostPopular);
-    console.log("most popular", this.mostPopular())
   }
 
 

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of } from 'rxjs';
 import { HttpService } from '../../services/http.service';
 import * as PostsActions from '../actions/posts.actions';
-import { Post } from '../models/posts.model';
+import { Post, PostResponse } from '../models/posts.model';
 
 @Injectable()
 export class PostsEffects {
@@ -14,8 +14,8 @@ export class PostsEffects {
         this.actions$.pipe(
             ofType(PostsActions.loadPosts),
             mergeMap(({ endPoint }) =>
-                this.http.get<Post[]>(endPoint).pipe(
-                    map((response: Post[]) =>
+                this.http.get<PostResponse>(endPoint).pipe(
+                    map((response: PostResponse) =>
                         PostsActions.loadPostsSuccess({ data: response })
                     ),
                     catchError(error =>

@@ -1,7 +1,7 @@
 @let items = posts(); @let maxPoplar = mostPopular();
 
 <div class="max-popular">
-  <h1>Most Popular</h1>
+  <h1>Most Popular on This Page</h1>
   <img
     [src]="maxPoplar?.image"
     [alt]="maxPoplar?.title"
@@ -45,3 +45,8 @@
   </li>
   }
 </ul>
+@if(totalPost()>0){
+<div class="d-flex justify-content-center pt-4">
+  <paginate [totalPost]="totalPost()"></paginate>
+</div>
+}

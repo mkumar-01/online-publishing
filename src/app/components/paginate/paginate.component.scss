@@ -1,0 +1,16 @@
+.pagination {
+    li {
+        a {
+            background-color: #e3f2fd;
+            border-color: darkblue;
+            color: #000;
+        }
+
+        &.active {
+            a {
+                font-weight: bold;
+                background-color: #ffc107;
+            }
+        }
+    }
+}
