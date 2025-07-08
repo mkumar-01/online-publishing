@@ -42,7 +42,6 @@ export class Dashboard implements OnInit {
         const totalItem = this.allData()?.items as number;
         this.totalPost.set(totalItem)
       }
-      console.log("all data ", this.allData())
 
       this.findMostPopular()
 
@@ -87,17 +86,22 @@ export class Dashboard implements OnInit {
     this.sortResult(sortTerm)
   }
   sortResult(sortTerm: string) {
-
+    const posts = [...(this.posts() || [])]; // clone the array safely
     switch (sortTerm) {
       case 'latest':
-        console.log("load date wise")
-
+        posts.sort((a, b) => {
+          const dateA = new Date(a.publishedDate).getTime();
+          const dateB = new Date(b.publishedDate).getTime();
+          return dateB - dateA; // newest first
+        });
+        this.posts.set(posts);
         break;
       case 'most popular':
-        console.log("load most liked wise")
+        posts.sort((a, b) => b.reactions.likes - a.reactions.likes);
+        this.posts.set(posts);
         break;
       default:
-        console.log("load all")
+        this.posts.set(this.allData()?.data ?? []);
     }
   }
 
