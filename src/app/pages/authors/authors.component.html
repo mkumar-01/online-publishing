@@ -2,6 +2,7 @@
 <div *ngIf="loading()">Loading authors...</div>
 
 <div *ngIf="error()">Error loading authors: {{ error()?.message }}</div>
+<search (searchTerm)="search($event)" placeholder="Search Author...."></search>
 <div class="authorslist">
   @for(item of authorsData; track $index){
   <div class="card" style="width: 18rem">
@@ -12,7 +13,7 @@
       <p class="card-text">
         {{ item?.body }}
       </p>
-      <button class="btn btn-primary">Related Post</button>
+      <!-- <button class="btn btn-primary">Related Post</button> -->
     </div>
   </div>
   }
