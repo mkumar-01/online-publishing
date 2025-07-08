@@ -1,1 +1,19 @@
-<p>authors works!</p>
+@let authorsData = authors();
+<div *ngIf="loading()">Loading authors...</div>
+
+<div *ngIf="error()">Error loading authors: {{ error()?.message }}</div>
+<div class="authorslist">
+  @for(item of authorsData; track $index){
+  <div class="card" style="width: 18rem">
+    <img [src]="item?.photo" class="card-img-top" [alt]="item?.name" />
+    <div class="card-body">
+      <h3 class="card-title">Author</h3>
+      <h5 class="card-title">{{ item?.name }}</h5>
+      <p class="card-text">
+        {{ item?.body }}
+      </p>
+      <button class="btn btn-primary">Related Post</button>
+    </div>
+  </div>
+  }
+</div>

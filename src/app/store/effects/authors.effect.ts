@@ -2,26 +2,26 @@ import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of } from 'rxjs';
 import { HttpService } from '../../services/http.service';
-import * as PostsActions from '../actions/posts.actions';
-import { Post, PostResponse } from '../models/posts.model';
+import * as AuthorsActions from '../actions/authors.actions';
+import { Authors } from '../models/authors.model';
 
 @Injectable()
-export class PostsEffects {
+export class AuthorsEffects {
     private actions$ = inject(Actions);
     private http = inject(HttpService);
 
     loadPosts$ = createEffect(() =>
         this.actions$.pipe(
-            ofType(PostsActions.loadPosts),
+            ofType(AuthorsActions.loadAuthors),
             mergeMap(({ endPoint }) =>
-                this.http.get<PostResponse>(endPoint).pipe(
-                    map((response: PostResponse) => {
-                        return PostsActions.loadPostsSuccess({ data: response })
+                this.http.get<Authors[]>(endPoint).pipe(
+                    map((response: Authors[]) => {
+                        return AuthorsActions.loadAuthorsSuccess({ data: response })
                     }
 
                     ),
                     catchError(error =>
-                        of(PostsActions.loadPostsFailure({ error }))
+                        of(AuthorsActions.loadAuthorsFailure({ error }))
                     )
                 )
             )
