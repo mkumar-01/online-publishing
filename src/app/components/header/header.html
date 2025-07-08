@@ -26,6 +26,11 @@
           >
         </li>
         <li class="nav-item" *ngIf="(auth.isAuthenticated$ | async)">
+          <a class="nav-link" aria-current="page" routerLink="/authors"
+            >Authors List</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="(auth.isAuthenticated$ | async)">
           <a class="nav-link" aria-current="page" routerLink="/create-post"
             >Create Post</a
           >
@@ -43,7 +48,7 @@
           <a
             class="btn btn-primary"
             aria-current="page"
-            routerLink="/login"
+            href="javascript:void(0)"
             *ngIf="!(auth.isAuthenticated$ | async)"
             (click)="login()"
             >Login</a

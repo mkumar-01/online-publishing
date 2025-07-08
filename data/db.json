@@ -455,7 +455,146 @@
     { "id": "1", "text": "a comment about post 1", "postId": "1" },
     { "id": "2", "text": "another comment about post 1", "postId": "1" }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "authors": [
+    {
+      "id": 1,
+      "name": "Girdhar",
+      "postId": 1,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Ravish Kumar",
+      "postId": 2,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Chitra Tripathi",
+      "postId": 3,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Rahul Gandhi",
+      "postId": 4,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Girdhar",
+      "postId": 5,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Manohar Lal Khattar",
+      "postId": 6,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Amitab Bacchan",
+      "postId": 7,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Sharukh Khan",
+      "postId": 8,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-8.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Salman Khan",
+      "postId": 9,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-9.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Amir Khan",
+      "postId": 10,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-10.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Ajay Devgon",
+      "postId": 11,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-11.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Akshay Kumar",
+      "postId": 12,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-12.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Narender Modi",
+      "postId": 13,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-13.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Akhilesh Yadav",
+      "postId": 14,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-14.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Pankaj Upadhyay",
+      "postId": 15,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-1.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Rakesh Tickat",
+      "postId": 16,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-2.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Anjana Om Kashyap",
+      "postId": 17,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-3.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Lalu Prasad Yadav",
+      "postId": 18,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-4.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Farukh Sheikh",
+      "postId": 19,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-5.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Sonam Kapoor",
+      "postId": 20,
+      "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+      "photo": "assets/images/authors/avatar-6.jpg"
+    }
+  ]
 }

@@ -20,6 +20,10 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
     },
+    {
+        path: 'authors',
+        loadComponent: () => import('./pages/authors/authors.component').then(m => m.AuthorsComponent),
+    },
     // {
     //     path: 'detail/:id',
     //     loadComponent: () => import('./pages/detail/detail').then(m => m.Detail),

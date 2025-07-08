@@ -90,7 +90,7 @@ export class Dashboard implements OnInit {
     switch (sortTerm) {
       case 'latest':
         posts.sort((a, b) => {
-          const dateA = new Date(a.publishedDate).getTime();
+          const dateA = new Date(a.publishedDate).getTime(); //converting string date into javascript object
           const dateB = new Date(b.publishedDate).getTime();
           return dateB - dateA; // newest first
         });
