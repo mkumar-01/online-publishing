@@ -5,13 +5,13 @@ import { Post, PostResponse } from '../../store/models/posts.model';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from '../../components/paginate/paginate.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SearchComponent } from '../../components/search/search.component';
 
 @Component({
   selector: 'dashboard',
   standalone: true,
-  imports: [CommonModule, PaginateComponent, SearchComponent],
+  imports: [CommonModule, PaginateComponent, SearchComponent, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
