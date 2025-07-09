@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { ViewportScroller } from '@angular/common'
 import { Post, } from '../../store/models/posts.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -13,10 +14,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './articledetail.component.scss'
 })
 export class ArticledetailComponent implements OnInit {
+  private viewportScroller = inject(ViewportScroller);
   private store = inject<Store<AppState>>(Store);
   public id: string | null = null;
   public articalDetail = signal<Post | null>(null);
   public sameAuthorArticles = signal<Post[]>([]);
+  public relatedByTags = signal<Post[]>([]);
   public posts = signal<Post[] | null>(null);
   private activatedRoute = inject(ActivatedRoute);
   private endPoint = 'http://localhost:3000/posts';
@@ -37,6 +40,7 @@ export class ArticledetailComponent implements OnInit {
 
         }
       });
+      this.viewportScroller.scrollToPosition([0, 0]); // Scroll to top
       this.store.select(state => state?.posts?.data).subscribe(res => {
         if (res) {
           // const postsArray = res as unknown as Post[];
@@ -44,6 +48,7 @@ export class ArticledetailComponent implements OnInit {
           this.posts.set(postsArray);
         }
         this.getAuthorArticles()
+        this.getRelatedArticlesByTags();
       });
     })
 
@@ -58,10 +63,27 @@ export class ArticledetailComponent implements OnInit {
         item.id !== currentArticle.id;
     })
     this.sameAuthorArticles.set(relatedArticles);
-    console.log(this.sameAuthorArticles())
-  }
-  getRelatedArticlesByTags() {
 
   }
+  getRelatedArticlesByTags() {
+    const currentArticle = this.articalDetail();
+    const articles = this.posts();
+
+    if (!currentArticle || !articles || !Array.isArray(articles)) return;
+
+    const currentTags = Array.isArray(currentArticle.tags)
+      ? currentArticle.tags.map(tag => tag.toLowerCase())
+      : [];
+
+    const related = articles.filter(post => {
+      if (post.id === currentArticle.id) return false;
+      if (!Array.isArray(post.tags)) return false;
+      return post.tags.some(tag => currentTags.includes(tag.toLowerCase()));
+    });
+    this.relatedByTags.set(related);
+  }
+
+
+
 
 }

@@ -12,6 +12,7 @@ export interface Post {
     image: string;
     authorName: string;
     publishedDate: string;
+    comment: string;
 }
 
 // This matches the API response
