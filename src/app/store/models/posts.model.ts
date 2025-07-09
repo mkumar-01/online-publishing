@@ -12,8 +12,17 @@ export interface Post {
     image: string;
     authorName: string;
     publishedDate: string;
-    comment: string;
+    comments?: Comment[];
 }
+export interface Comment {
+    id: number;
+    postId: number;
+    userName: string;
+    message: string;
+    createdAt: string;
+    replies?: Comment[]; // optional nested replies
+}
+
 
 // This matches the API response
 export interface PostResponse {

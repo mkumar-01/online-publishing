@@ -7,9 +7,10 @@ import { AppState } from '../../store/reducers';
 import * as PostsActions from '../../store/actions/posts.actions';
 import * as ArticleActions from '../../store/actions/articleDetail.actions';
 import { CommonModule } from '@angular/common';
+import { CommentsComponent } from '../../components/comments/comments.component';
 @Component({
   selector: 'articledetail',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, CommentsComponent],
   templateUrl: './articledetail.component.html',
   styleUrl: './articledetail.component.scss'
 })
