@@ -1,13 +1,42 @@
 <ul class="comment-section">
-  <li></li>
+  <li *ngFor="let comment of topLevelComments()">
+    <strong>{{ comment.userName }}</strong
+    >: {{ comment.message }}
+    <small>({{ comment.createdAt | date : "short" }})</small>
+    <br />
+    <button
+      class="btn btn-sm btn-outline-secondary"
+      *ngIf="comment.id !== undefined"
+      (click)="setReply(comment.id!)"
+    >
+      Reply
+    </button>
+
+    <!-- Nested replies -->
+    <ul class="nested-replies">
+      <li *ngFor="let reply of getReplies(comment.id!)">
+        <strong>{{ reply.userName }}</strong
+        >: {{ reply.message }}
+        <small>({{ reply.createdAt | date : "short" }})</small>
+      </li>
+    </ul>
+  </li>
 </ul>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
+
+<div class="mb-3 mt-4">
+  <label for="commentBox" class="form-label">Comment</label>
   <textarea
     class="form-control"
-    id="exampleFormControlTextarea1"
+    id="commentBox"
     rows="3"
+    [(ngModel)]="newComment"
+    placeholder="Write a comment or reply..."
   ></textarea>
 </div>
 
-<button type="button">Submit</button>
+<div *ngIf="replyTo">
+  <small>Replying to comment ID: {{ replyTo }}</small>
+  <button class="btn btn-link btn-sm" (click)="cancelReply()">Cancel</button>
+</div>
+
+<button class="btn btn-primary" (click)="postComment()">Submit</button>

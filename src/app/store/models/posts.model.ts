@@ -12,7 +12,6 @@ export interface Post {
     image: string;
     authorName: string;
     publishedDate: string;
-    comments?: Comment[];
 }
 export interface Comment {
     id: number;
@@ -20,8 +19,9 @@ export interface Comment {
     userName: string;
     message: string;
     createdAt: string;
-    replies?: Comment[]; // optional nested replies
+    parentId?: number; // indicates this is a reply to another comment
 }
+
 
 
 // This matches the API response
