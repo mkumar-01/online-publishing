@@ -25,3 +25,23 @@
   </ol>
 </div>
 }
+<hr />
+<h3>Articles By The Same Author</h3>
+<ul class="sameAuthorArticle">
+  @for(items of sameAuthorArticles(); track $index){
+  <li>
+    <div class="card" style="width: 18rem">
+      <img [src]="items.image" class="card-img-top" [alt]="items.title" />
+      <div class="card-body">
+        <h5 class="card-title">{{ items.title }}</h5>
+        <p class="card-text">
+          {{ items.body | slice : 0 : 50 }}
+        </p>
+        <a [routerLink]="['/artical/' + items?.id]" class="btn btn-primary"
+          >Learn more</a
+        >
+      </div>
+    </div>
+  </li>
+  }
+</ul>
