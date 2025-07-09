@@ -17,7 +17,7 @@ export class ArticleDetailEffects {
             mergeMap(({ endPoint }) =>
                 this.http.get<Post>(endPoint).pipe(
                     map((response: Post) => {
-                        return ArticleActions.loadArticleDetailSuccess({ data: response })
+                        return ArticleActions.loadArticleDetailSuccess({ articleData: response })
                     }
 
                     ),

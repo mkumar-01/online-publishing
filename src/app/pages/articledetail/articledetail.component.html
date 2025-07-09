@@ -1,4 +1,4 @@
-@let detail = articalDetail()??null;
+@let detail = articalDetail()??null; @if(detail !==null){
 <div class="max-popular">
   <h1>{{ detail?.title }}</h1>
   <img
@@ -24,3 +24,4 @@
     <li><strong>Author Name:</strong> {{ detail?.authorName }}</li>
   </ol>
 </div>
+}

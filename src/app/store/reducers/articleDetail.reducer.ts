@@ -3,14 +3,14 @@ import * as ArticleActions from '../actions/articleDetail.actions';
 import { Post } from '../models/posts.model';
 
 export interface ArticleState {
-    data: Post | null;
-    loading: boolean;
+    articleData: Post | null;
+    articleLoading: boolean;
     error: any;
 }
 
 export const initialState: ArticleState = {
-    data: null,
-    loading: false,
+    articleData: null,
+    articleLoading: false,
     error: null
 };
 
@@ -18,17 +18,17 @@ export const articleReducer = createReducer(
     initialState,
     on(ArticleActions.loadArticleDetail, state => ({
         ...state,
-        loading: true,
+        articleLoading: true,
         error: null
     })),
-    on(ArticleActions.loadArticleDetailSuccess, (state, { data }) => ({
+    on(ArticleActions.loadArticleDetailSuccess, (state, { articleData }) => ({
         ...state,
-        loading: false,
-        data: data
+        articleLoading: false,
+        articleData: articleData
     })),
     on(ArticleActions.loadArticleDetailFailure, (state, { error }) => ({
         ...state,
-        loading: false,
+        articleLoading: false,
         error
     }))
 );

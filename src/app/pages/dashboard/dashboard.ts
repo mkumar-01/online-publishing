@@ -42,7 +42,7 @@ export class Dashboard implements OnInit {
         const totalItem = this.allData()?.items as number;
         this.totalPost.set(totalItem)
       }
-
+      console.log("all data in dashboard", this.allData())
       this.findMostPopular()
 
     });
