@@ -5,13 +5,13 @@ import { Post, PostResponse } from '../../store/models/posts.model';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from '../../components/paginate/paginate.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SearchComponent } from '../../components/search/search.component';
 
 @Component({
   selector: 'dashboard',
   standalone: true,
-  imports: [CommonModule, PaginateComponent, SearchComponent],
+  imports: [CommonModule, PaginateComponent, SearchComponent, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -42,7 +42,6 @@ export class Dashboard implements OnInit {
         const totalItem = this.allData()?.items as number;
         this.totalPost.set(totalItem)
       }
-
       this.findMostPopular()
 
     });
@@ -90,7 +89,7 @@ export class Dashboard implements OnInit {
     switch (sortTerm) {
       case 'latest':
         posts.sort((a, b) => {
-          const dateA = new Date(a.publishedDate).getTime();
+          const dateA = new Date(a.publishedDate).getTime(); //converting string date into javascript object
           const dateB = new Date(b.publishedDate).getTime();
           return dateB - dateA; // newest first
         });

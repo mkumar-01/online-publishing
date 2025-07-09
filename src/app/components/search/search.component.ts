@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'search',
@@ -7,7 +7,8 @@ import { Component, output } from '@angular/core';
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  searchTerm = output<string>()
+  placeholder = input<string>("Search");
+  searchTerm = output<string>();
   onSearch(value: string) {
     this.searchTerm.emit(value)
   }

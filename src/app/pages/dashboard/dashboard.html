@@ -32,7 +32,7 @@
       } }
     </li>
     <li><strong>Author Name:</strong> {{maxPoplar?.authorName}}</li>
-    <li><a href="#">Read More...</a></li>
+    <li><a [routerLink]="['/artical/'+maxPoplar?.id]">Read More...</a></li>
   </ol>
 </div>
 <search (searchTerm)="search($event)"></search>
@@ -51,7 +51,10 @@
   <li>
     <div class="des">
       <h3>{{item?.title}}</h3>
-      <p>{{item?.body}} <a href="#">Read More...</a></p>
+      <p>
+        {{item?.body | slice:0:150 }}
+        <a [routerLink]="['/artical/'+item?.id]">Read More...</a>
+      </p>
       <p class="tags">
         <i class="material-icons" title="tags">sell</i> @for (tag of item.tags;
         track $index) {
