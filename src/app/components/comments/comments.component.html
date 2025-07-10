@@ -1,8 +1,10 @@
 <ul class="comment-section">
   <li *ngFor="let comment of topLevelComments()">
-    <strong>{{ comment.userName }}</strong
-    >: {{ comment.message }}
-    <small>({{ comment.createdAt | date : "short" }})</small>
+    <div>
+      <strong>{{ comment.userName }}</strong>
+    </div>
+    <strong>{{ comment.message }}</strong>
+    <small> {{ comment.createdAt | date : "short" }}</small>
     <br />
     <button
       class="btn btn-sm btn-outline-secondary"
@@ -11,13 +13,20 @@
     >
       Reply
     </button>
+    <!-- <input
+      class="form-control"
+      id="commentBox"
+      [(ngModel)]="newComment"
+      placeholder="Write a comment or reply..."
+    /> -->
 
-    <!-- Nested replies -->
     <ul class="nested-replies">
       <li *ngFor="let reply of getReplies(comment.id!)">
-        <strong>{{ reply.userName }}</strong
-        >: {{ reply.message }}
-        <small>({{ reply.createdAt | date : "short" }})</small>
+        <div>
+          <strong>{{ reply.userName }}</strong>
+        </div>
+        <strong>{{ reply.message }}</strong>
+        <small>{{ reply.createdAt | date : "short" }}</small>
       </li>
     </ul>
   </li>
@@ -34,9 +43,9 @@
   ></textarea>
 </div>
 
-<div *ngIf="replyTo">
+<!-- <div *ngIf="replyTo">
   <small>Replying to comment ID: {{ replyTo }}</small>
   <button class="btn btn-link btn-sm" (click)="cancelReply()">Cancel</button>
-</div>
+</div> -->
 
 <button class="btn btn-primary" (click)="postComment()">Submit</button>

@@ -602,21 +602,24 @@
   ],
   "comments": [
     {
-      "id": "1",
+      "id": 1,
       "postId": 1,
-      "message": "Great article",
+      "message": "Great article!!",
+      "createdAt": "2025-07-08T10:15:00.000Z",
       "parentId": null
     },
     {
-      "id": "2",
+      "id": 2,
       "postId": 1,
       "message": "Thanks!",
+      "createdAt": "2025-07-08T10:20:00.000Z",
       "parentId": 1
     },
     {
-      "id": "3",
+      "id": 3,
       "postId": 1,
-      "message": "Any sources?",
+      "message": "Which sources?",
+      "createdAt": "2025-07-08T10:24:00.000Z",
       "parentId": null
     }
   ],

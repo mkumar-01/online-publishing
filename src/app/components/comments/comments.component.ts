@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ interface Comment {
   userName: string;
   message: string;
   createdAt: string;
-  parentId?: number | null;
+  parentId: number | null;
 }
 
 @Component({
@@ -21,22 +21,30 @@ interface Comment {
 })
 export class CommentsComponent implements OnInit {
   articleId = input<number>(); // now required input
-  comments: Comment[] = [];
+  comments = signal<Comment[]>([]);
   newComment: string = '';
   replyTo: number | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
+    const postId = this.articleId();
+    console.log(postId)
+    if (!postId) {
+      console.warn('articleId input is missing');
+      return;
+    }
     this.fetchComments();
   }
+
 
   fetchComments(): void {
     const postId = this.articleId();
     if (!postId) return;
 
     this.http.get<Comment[]>(`http://localhost:3000/comments?postId=${postId}`).subscribe(data => {
-      this.comments = data;
+      this.comments.set(data);
     });
   }
 
@@ -68,10 +76,11 @@ export class CommentsComponent implements OnInit {
   }
 
   getReplies(parentId: number): Comment[] {
-    return this.comments.filter(c => c.parentId === parentId);
+    return this.comments().filter(c => Number(c.parentId) === parentId);
   }
 
+
   topLevelComments(): Comment[] {
-    return this.comments.filter(c => c.parentId == null);
+    return this.comments().filter(c => c.parentId == null);
   }
 }
