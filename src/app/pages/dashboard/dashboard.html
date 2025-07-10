@@ -6,17 +6,17 @@
     (pageChange)="onPageChange($event)"
   ></paginate>
 </div>
-}
-
+} @if(maxPoplar?.reactions?.likes!=0){
 <div class="max-popular">
   <h1>Most Popular on This Page</h1>
   <img
+    *ngIf="maxPoplar?.image"
     [src]="maxPoplar?.image"
     [alt]="maxPoplar?.title"
     style="width: 100%; max-height: 300px; margin-bottom: 20px"
   />
   <h3>{{maxPoplar?.title}}</h3>
-  <p>{{maxPoplar?.body}}</p>
+  <p [innerHTML]="maxPoplar?.body | slice:0:150"></p>
   <ol class="post-meta">
     <li><strong>Published:</strong> {{maxPoplar?.publishedDate}}</li>
     <li>
@@ -35,6 +35,12 @@
     <li><a [routerLink]="['/artical/'+maxPoplar?.id]">Read More...</a></li>
   </ol>
 </div>
+}@else {
+<div class="max-popular">
+  <h1>There don't have any most popular post on this page....</h1>
+</div>
+}
+
 <search (searchTerm)="search($event)"></search>
 <div class="row justify-content-end mb-5">
   <div class="col-4 d-flex gap-3 align-items-center">
@@ -51,8 +57,8 @@
   <li>
     <div class="des">
       <h3>{{item?.title}}</h3>
-      <p>
-        {{item?.body | slice:0:150 }}
+      <p [innerHTML]="item?.body | slice:0:150">
+        <!-- {{item?.body | slice:0:150 }} -->
         <a [routerLink]="['/artical/'+item?.id]">Read More...</a>
       </p>
       <p class="tags">
@@ -69,11 +75,19 @@
       </ol>
     </div>
     <div class="img">
+      @if(item?.image){
       <img
         [src]="item?.image"
         [alt]="item?.title"
         style="width: 380px; height: 200px"
       />
+      }@else{
+      <img
+        src="assets/images/no-image.webp"
+        [alt]="item?.title"
+        style="width: 380px; height: 200px"
+      />
+      }
     </div>
   </li>
   } }@else {

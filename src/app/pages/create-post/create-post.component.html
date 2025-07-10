@@ -1,12 +1,92 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="NgxEditor__Wrapper">
-    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-    <ngx-editor
-      [editor]="editor"
-      formControlName="content"
-      [disabled]="false"
-      [placeholder]="'Type here...'"
-    ></ngx-editor>
+  <div class="mb-3">
+    <label for="postTitle" class="form-label">Enter Title of Post</label>
+    <input
+      type="text"
+      class="form-control"
+      id="postTitle"
+      formControlName="title"
+    />
+    <div
+      class="text-danger"
+      *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
+    >
+      Title is required (min 3 characters).
+    </div>
   </div>
-  <button class="btn btn-primary mt-3" type="submit">Submit</button>
+
+  <div class="mb-3">
+    <label for="postBody" class="form-label">Write Your Post</label>
+    <div class="NgxEditor__Wrapper">
+      <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+      <ngx-editor
+        [editor]="editor"
+        formControlName="content"
+        [placeholder]="'Type here...'"
+      ></ngx-editor>
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="form.get('content')?.invalid && form.get('content')?.touched"
+    >
+      Content is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="postTags" class="form-label"
+      >Enter Tags (comma separated)</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="postTags"
+      formControlName="tags"
+      placeholder="e.g. Politics, Cinema, History"
+    />
+    <div
+      class="text-danger"
+      *ngIf="form.get('tags')?.invalid && form.get('tags')?.touched"
+    >
+      Tags are required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="authorName" class="form-label">Author Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="authorName"
+      formControlName="authorName"
+      placeholder="Author Name"
+    />
+    <div
+      class="text-danger"
+      *ngIf="form.get('authorName')?.invalid && form.get('authorName')?.touched"
+    >
+      Author name is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="authorPhoto" class="form-label">Upload Author Photo</label>
+    <input
+      type="file"
+      class="form-control"
+      id="authorPhoto"
+      formControlName="authorPhoto"
+      placeholder="Select picture"
+    />
+    <!-- <div
+      class="text-danger"
+      *ngIf="form.get('authorName')?.invalid && form.get('authorName')?.touched"
+    >
+      Author name is required.
+    </div> -->
+  </div>
+
+  <button class="btn btn-primary mt-3" type="submit" [disabled]="form.invalid">
+    Submit
+  </button>
 </form>

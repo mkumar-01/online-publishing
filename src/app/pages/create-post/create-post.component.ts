@@ -1,15 +1,22 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgxEditorComponent, NgxEditorMenuComponent, Editor, toHTML, NgxEditorModule } from 'ngx-editor';
-// import { schema } from 'ngx-editor/schema';
-import { schema } from 'ngx-editor';
-import { DOMParser as ProseMirrorDOMParser } from 'prosemirror-model';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgxEditorComponent, NgxEditorMenuComponent, Editor } from 'ngx-editor';
+import { Store } from '@ngrx/store';
 import { Post } from '../../store/models/posts.model';
+import * as CreatePostActions from '../../store/actions/createpost.actions';
+import { AppState } from '../../store/reducers';
 
 @Component({
   selector: 'create-post',
-  imports: [NgxEditorComponent, NgxEditorMenuComponent, FormsModule, CommonModule, ReactiveFormsModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxEditorComponent,
+    NgxEditorMenuComponent
+  ],
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.scss'
 })
@@ -17,35 +24,48 @@ export class CreatePostComponent implements OnInit, OnDestroy {
   html = '';
   editor!: Editor;
   form!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder, private store: Store<AppState>) { }
+
   ngOnInit(): void {
     this.editor = new Editor();
     this.form = this.fb.group({
-      content: [''] // This will bind to the editor
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      content: ['', Validators.required],
+      tags: ['', Validators.required],
+      authorName: ['', Validators.required],
+      authorPhoto: ['']
     });
   }
 
   ngOnDestroy(): void {
     this.editor.destroy();
   }
+
   onSubmit(): void {
-    const htmlContent = this.form.value.content;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const { title, content, tags, authorName, authorPhoto } = this.form.value;
+    console.log(authorPhoto)
     const newPost: Post = {
-      id: Date.now(), // or let backend generate it
-      title: 'Sample Title',
-      body: htmlContent, // saving HTML
-      tags: ['angular', 'editor'],
+      id: Date.now(),
+      title: title,
+      body: content,
+      tags: tags.split(',').map((tag: string) => tag.trim()), // Convert comma-separated string to array
       reactions: { likes: 0, dislikes: 0 },
       views: 0,
-      userId: 1, // fake user id
-      image: 'assets/images/placeholder.jpg',
-      authorName: 'Anonymous',
+      userId: 1,
+      image: '',
+      authorName: authorName,
       publishedDate: new Date().toISOString()
     };
-    console.log(newPost)
 
-    // this.http.post<Post>('http://localhost:3000/posts', newPost).subscribe(() => {
-    //   console.log('Post created!');
-    // });
+    const endPoint = 'http://localhost:3000/posts';
+    console.log(newPost)
+    this.store.dispatch(CreatePostActions.createPost({ endPoint, post: newPost }));
   }
+
 }
