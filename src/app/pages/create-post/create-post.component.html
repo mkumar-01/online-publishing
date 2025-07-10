@@ -1,1 +1,12 @@
-<p>create-post works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="NgxEditor__Wrapper">
+    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor"
+      formControlName="content"
+      [disabled]="false"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+  </div>
+  <button class="btn btn-primary mt-3" type="submit">Submit</button>
+</form>
