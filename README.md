@@ -1,13 +1,18 @@
 # publishing
+you need to run npm install first of all to run this project. 
 Use following credentials for login
-email: 
+email: login with your gmail id or facebook
 password: 
 
 github link = https://github.com/mkumar-01/online-publishing.git
 
+you need to run json server apartfrom npm start in angular project which is as follows (in the same terminal )
+npx json-server data/db.json
+
 auth0 setting links
 https://manage.auth0.com/dashboard/us/dev-b1tmymqymzxizcji/applications
 https://manage.auth0.com/dashboard/us/dev-b1tmymqymzxizcji/applications/3twCuwer4HTGm4lMz6nCGVV0g1dZTBGA/settings
+
 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.

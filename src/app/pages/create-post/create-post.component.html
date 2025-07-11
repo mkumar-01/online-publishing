@@ -90,4 +90,9 @@
     Submit
   </button>
 </form>
-<modal *ngIf="preview"></modal>
+<modal
+  *ngIf="preview"
+  [postData]="postData()"
+  (onPreviewSubmit)="onPreviewSubmit()"
+  (onClose)="onModalClose($event)"
+></modal>

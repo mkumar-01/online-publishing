@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxEditorComponent, NgxEditorMenuComponent, Editor } from 'ngx-editor';
@@ -7,6 +7,7 @@ import { Post } from '../../store/models/posts.model';
 import * as CreatePostActions from '../../store/actions/createpost.actions';
 import { AppState } from '../../store/reducers';
 import { ModalComponent } from '../../components/modal/modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'create-post',
@@ -27,6 +28,9 @@ export class CreatePostComponent implements OnInit, OnDestroy {
   editor!: Editor;
   form!: FormGroup;
   preview: boolean = false;
+  postData = signal<Partial<Post>>({});
+  router = inject(Router)
+
 
   constructor(private fb: FormBuilder, private store: Store<AppState>) { }
 
@@ -53,7 +57,7 @@ export class CreatePostComponent implements OnInit, OnDestroy {
 
     const { title, content, tags, authorName, authorPhoto } = this.form.value;
     const newPost: Post = {
-      id: Date.now(),
+      id: (Date.now()).toString(),
       title: title,
       body: content,
       tags: tags.split(',').map((tag: string) => tag.trim()), // Convert comma-separated string to array
@@ -66,19 +70,22 @@ export class CreatePostComponent implements OnInit, OnDestroy {
     };
     if (newPost) {
       this.preview = true;
-      this.isPreview(newPost)
+      this.postData.set(newPost)
+      // this.isPreview(newPost)
     }
 
 
 
   }
-
-  isPreview(newPost: Post) {
-    // const endPoint = 'http://localhost:3000/posts';
-    // this.store.dispatch(CreatePostActions.createPost({ endPoint, post: newPost }));
+  onModalClose(event: boolean) {
+    this.preview = event;
   }
-  isPreviewSubmitted() {
-
+  onPreviewSubmit() {
+    const newPost = this.postData() as Post;
+    const endPoint = 'http://localhost:3000/posts';
+    // console.log(JSON.stringify(newPost))
+    this.store.dispatch(CreatePostActions.createPost({ endPoint, post: newPost }));
+    this.router.navigate([`/artical/${newPost.id}`]);
   }
 
 }

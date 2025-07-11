@@ -10,7 +10,7 @@ export class ModalComponent implements OnInit {
   onClose = output<boolean>();
   onPreviewSubmit = output<boolean>();
   postData = input<any>();
-  close() {
+  cancel() {
     this.onClose.emit(false)
   }
   onSubmit() {
@@ -18,6 +18,6 @@ export class ModalComponent implements OnInit {
     this.onClose.emit(false)
   }
   ngOnInit() {
-    console.log(this.postData())
+    this.postData()
   }
 }

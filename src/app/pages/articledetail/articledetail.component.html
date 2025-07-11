@@ -6,7 +6,7 @@
     [alt]="detail?.title"
     style="width: 100%; max-height: 300px; margin-bottom: 20px"
   />
-  <p>{{ detail?.body }}</p>
+  <p [innerHTML]="detail?.body"></p>
   <ol class="post-meta">
     <li><strong>Published:</strong> {{ detail?.publishedDate }}</li>
     <li>
@@ -34,9 +34,7 @@
       <img [src]="items.image" class="card-img-top" [alt]="items.title" />
       <div class="card-body">
         <h5 class="card-title">{{ items.title }}</h5>
-        <p class="card-text">
-          {{ items.body | slice : 0 : 50 }}
-        </p>
+        <p class="card-text" [innerHTML]="detail?.body"></p>
         <a [routerLink]="['/artical/' + items?.id]" class="btn btn-primary"
           >Learn more</a
         >
@@ -54,9 +52,7 @@
       <img [src]="items.image" class="card-img-top" [alt]="items.title" />
       <div class="card-body">
         <h5 class="card-title">{{ items.title }}</h5>
-        <p class="card-text">
-          {{ items.body | slice : 0 : 50 }}
-        </p>
+        <p class="card-text" [innerHTML]="detail?.body | slice : 0 : 50"></p>
         <a [routerLink]="['/artical/' + items?.id]" class="btn btn-primary"
           >Learn more</a
         >

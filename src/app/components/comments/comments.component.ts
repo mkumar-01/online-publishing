@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 interface Comment {
-  id?: number;
-  postId: number;
+  id?: string;
+  postId: string; // changed from number to string
   userName: string;
   message: string;
   createdAt: string;
-  parentId: number | null;
+  parentId: string | null; // changed from number to string | null
 }
 
 @Component({
@@ -20,17 +20,15 @@ interface Comment {
   styleUrl: './comments.component.scss'
 })
 export class CommentsComponent implements OnInit {
-  articleId = input<number>(); // now required input
+  articleId = input<string>(); // changed input to string
   comments = signal<Comment[]>([]);
   newComment: string = '';
-  replyTo: number | null = null;
+  replyTo: string | null = null;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     const postId = this.articleId();
-    console.log(postId)
     if (!postId) {
       console.warn('articleId input is missing');
       return;
@@ -38,14 +36,15 @@ export class CommentsComponent implements OnInit {
     this.fetchComments();
   }
 
-
   fetchComments(): void {
     const postId = this.articleId();
     if (!postId) return;
 
-    this.http.get<Comment[]>(`http://localhost:3000/comments?postId=${postId}`).subscribe(data => {
-      this.comments.set(data);
-    });
+    this.http
+      .get<Comment[]>(`http://localhost:3000/comments?postId=${postId}`)
+      .subscribe(data => {
+        this.comments.set(data);
+      });
   }
 
   postComment(): void {
@@ -57,17 +56,19 @@ export class CommentsComponent implements OnInit {
       userName: 'Anonymous',
       message: this.newComment.trim(),
       createdAt: new Date().toISOString(),
-      parentId: this.replyTo ?? null
+      parentId: this.replyTo
     };
 
-    this.http.post<Comment>('http://localhost:3000/comments', newEntry).subscribe(() => {
-      this.newComment = '';
-      this.replyTo = null;
-      this.fetchComments();
-    });
+    this.http
+      .post<Comment>('http://localhost:3000/comments', newEntry)
+      .subscribe(() => {
+        this.newComment = '';
+        this.replyTo = null;
+        this.fetchComments();
+      });
   }
 
-  setReply(commentId: number): void {
+  setReply(commentId: string): void {
     this.replyTo = commentId;
   }
 
@@ -75,10 +76,9 @@ export class CommentsComponent implements OnInit {
     this.replyTo = null;
   }
 
-  getReplies(parentId: number): Comment[] {
-    return this.comments().filter(c => Number(c.parentId) === parentId);
+  getReplies(parentId: string): Comment[] {
+    return this.comments().filter(c => c.parentId === parentId);
   }
-
 
   topLevelComments(): Comment[] {
     return this.comments().filter(c => c.parentId == null);

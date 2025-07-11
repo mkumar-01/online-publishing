@@ -746,7 +746,7 @@
       "publishedDate": "10 Apr 2025"
     },
     {
-      "id": 1752143097179,
+      "id": "1752143097179",
       "title": "Hello this is just testing title",
       "body": "<p>This is just testing body paragraph</p>",
       "tags": [
@@ -761,25 +761,82 @@
       "image": "",
       "authorName": "manoj soni",
       "publishedDate": "2025-07-10T10:24:57.179Z"
+    },
+    {
+      "id": "1752233123580",
+      "title": "Title of the manojsoni post",
+      "body": "<h3>some heading</h3><p>paragrah of the manojsoni post</p><p><a href=\"www.google.com\" title=\"www.google.com\" target=\"_blank\">somelink</a></p><p><img src=\"https://images.unsplash.com/photo-1627639679638-8485316a4b21?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHx8MA%3D%3D\" alt=\"\" title=\"\"></p>",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "reactions": {
+        "likes": 0,
+        "dislikes": 0
+      },
+      "views": 0,
+      "userId": 1,
+      "image": "",
+      "authorName": "Manoj soni",
+      "publishedDate": "2025-07-11T11:25:23.580Z"
+    },
+    {
+      "id": "1752233306666",
+      "title": "Deepak Kumar",
+      "body": "<h4>Deepak heading</h4><p>Deepak post pargarph</p><p><a href=\"https://www.google.co.in\" title=\"https://www.google.co.in\" target=\"_blank\">somelink</a></p><p><img src=\"https://images.unsplash.com/photo-1627639679638-8485316a4b21?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHx8MA%3D%3D\" alt=\"\" title=\"\"></p>",
+      "tags": [
+        "tag1",
+        "tag2",
+        ""
+      ],
+      "reactions": {
+        "likes": 0,
+        "dislikes": 0
+      },
+      "views": 0,
+      "userId": 1,
+      "image": "",
+      "authorName": "Deepak Kumar",
+      "publishedDate": "2025-07-11T11:28:26.666Z"
+    },
+    {
+      "id": "1752233841905",
+      "title": "The Modern JavaScript Tutorial",
+      "body": "<p><strong><span style=\"color:rgb(49, 49, 48);\"><span style=\"background-color:rgb(255, 255, 255);\">Main course contains 2 parts which cover JavaScript as a programming language and working with a browser. There are also additional series of thematic articles.</span></span></strong></p><p><span style=\"color:rgb(248, 248, 242);\"><span style=\"background-color:rgb(12, 23, 43);\">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam corrupti, labore, placeat nulla, maiores sit vitae modi commodi consequatur illo temporibus. Perferendis in, tempore nulla voluptatem architecto adipisci aliquid ab?</span></span></p><p><span style=\"color:rgb(248, 248, 242);\"><span style=\"background-color:rgb(12, 23, 43);\">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam corrupti, labore, placeat nulla, maiores sit vitae modi commodi consequatur illo temporibus. Perferendis in, tempore nulla voluptatem architecto adipisci aliquid ab?</span></span></p><p><img src=\"https://images.unsplash.com/photo-1627639679638-8485316a4b21?w=500&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHx8MA%3D%3D\" alt=\"\" title=\"\"></p>",
+      "tags": [
+        "tag1",
+        "tag",
+        "2 tag3"
+      ],
+      "reactions": {
+        "likes": 0,
+        "dislikes": 0
+      },
+      "views": 0,
+      "userId": 1,
+      "image": "",
+      "authorName": "Manoj Soni",
+      "publishedDate": "2025-07-11T11:37:21.905Z"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "postId": 1,
       "message": "Great article!!",
       "createdAt": "2025-07-08T10:15:00.000Z",
       "parentId": null
     },
     {
-      "id": 2,
+      "id": "2",
       "postId": 1,
       "message": "Thanks!",
       "createdAt": "2025-07-08T10:20:00.000Z",
       "parentId": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "postId": 1,
       "message": "Which sources?",
       "createdAt": "2025-07-08T10:24:00.000Z",
