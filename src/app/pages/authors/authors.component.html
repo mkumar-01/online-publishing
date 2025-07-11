@@ -6,7 +6,15 @@
 <div class="authorslist">
   @for(item of authorsData; track $index){
   <div class="card" style="width: 18rem">
+    @if(item?.photo){
     <img [src]="item?.photo" class="card-img-top" [alt]="item?.name" />
+    }@else{
+    <img
+      src="assets/images/authors/default.jpg"
+      class="card-img-top"
+      [alt]="item?.name"
+    />
+    }
     <div class="card-body">
       <h3 class="card-title">Author</h3>
       <h5 class="card-title">{{ item?.name }}</h5>

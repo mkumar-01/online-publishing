@@ -1,0 +1,61 @@
+@let data = postData();
+<div class="modal fade show" style="display: block">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+          Post Draft
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="cancel()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Post Title</label>
+            <div>{{ data.title }}</div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Post body</label>
+            <div [innerHTML]="data?.body"></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Post tags</label>
+            <div>{{ data?.tags }}</div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Published date</label>
+            <div>{{ data?.publishedDate }}</div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Author name</label>
+            <div>{{ data?.authorName }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

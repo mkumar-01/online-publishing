@@ -70,7 +70,7 @@ export class Dashboard implements OnInit {
         post.title.toLowerCase().includes(value) ||
         post.body.toLowerCase().includes(value) ||
         post.authorName.toLowerCase().includes(value) ||
-        post.tags.some(tag => tag.toLowerCase().includes(value.toLowerCase()))
+        post.tags?.some(tag => tag.toLowerCase().includes(value.toLowerCase()))
       )
       this.posts.set(searchResult)
     } else {

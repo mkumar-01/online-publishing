@@ -15,6 +15,7 @@ import { CounterEffects } from './store/effects/counter.effects';
 import { PostsEffects } from './store/effects/posts.effect';
 import { AuthorsEffects } from './store/effects/authors.effect';
 import { ArticleDetailEffects } from './store/effects/articleDetail.effect';
+import { CreatePostEffects } from './store/effects/createpost.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -30,7 +31,7 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideStore(reducers),
-    provideEffects([CounterEffects, PostsEffects, AuthorsEffects, ArticleDetailEffects]),
+    provideEffects([CounterEffects, PostsEffects, AuthorsEffects, ArticleDetailEffects, CreatePostEffects]),
     importProvidersFrom(StoreDevtoolsModule.instrument({ maxAge: 25 }))
   ]
 };
