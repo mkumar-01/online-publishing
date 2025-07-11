@@ -57,11 +57,11 @@
   <li>
     <div class="des">
       <h3>{{item?.title}}</h3>
-      <p [innerHTML]="item?.body | slice:0:150">
-        <!-- {{item?.body | slice:0:150 }} -->
-        <a [routerLink]="['/artical/'+item?.id]">Read More...</a>
-      </p>
-      <p class="tags">
+      <p [innerHTML]="item?.body | slice:0:150" style="display: contents"></p>
+      <a [routerLink]="['/artical/'+item?.id]" style="margin-left: 10px"
+        >Read More...</a
+      >
+      <p class="tags mt-3">
         <i class="material-icons" title="tags">sell</i> @for (tag of item.tags;
         track $index) {
         <span>{{ tag }}&nbsp;|&nbsp;</span>

@@ -1,0 +1,61 @@
+<!-- @let data = postData(); -->
+<div class="modal fade show" style="display: block">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+          Post Draft
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="close()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Post Title</label>
+            <div>title</div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Post body</label>
+            <div>body</div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Post tags</label>
+            <div>body</div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Published date</label>
+            <div>body</div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label class="fw-semibold">Author name</label>
+            <div>body</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close()">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

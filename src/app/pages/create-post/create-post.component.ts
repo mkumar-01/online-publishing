@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Post } from '../../store/models/posts.model';
 import * as CreatePostActions from '../../store/actions/createpost.actions';
 import { AppState } from '../../store/reducers';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'create-post',
@@ -15,7 +16,8 @@ import { AppState } from '../../store/reducers';
     FormsModule,
     ReactiveFormsModule,
     NgxEditorComponent,
-    NgxEditorMenuComponent
+    NgxEditorMenuComponent,
+    ModalComponent
   ],
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.scss'
@@ -24,6 +26,7 @@ export class CreatePostComponent implements OnInit, OnDestroy {
   html = '';
   editor!: Editor;
   form!: FormGroup;
+  preview: boolean = false;
 
   constructor(private fb: FormBuilder, private store: Store<AppState>) { }
 
@@ -49,7 +52,6 @@ export class CreatePostComponent implements OnInit, OnDestroy {
     }
 
     const { title, content, tags, authorName, authorPhoto } = this.form.value;
-    console.log(authorPhoto)
     const newPost: Post = {
       id: Date.now(),
       title: title,
@@ -62,10 +64,21 @@ export class CreatePostComponent implements OnInit, OnDestroy {
       authorName: authorName,
       publishedDate: new Date().toISOString()
     };
+    if (newPost) {
+      this.preview = true;
+      this.isPreview(newPost)
+    }
 
-    const endPoint = 'http://localhost:3000/posts';
-    console.log(newPost)
-    this.store.dispatch(CreatePostActions.createPost({ endPoint, post: newPost }));
+
+
+  }
+
+  isPreview(newPost: Post) {
+    // const endPoint = 'http://localhost:3000/posts';
+    // this.store.dispatch(CreatePostActions.createPost({ endPoint, post: newPost }));
+  }
+  isPreviewSubmitted() {
+
   }
 
 }
