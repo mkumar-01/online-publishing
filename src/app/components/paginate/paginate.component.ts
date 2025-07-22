@@ -18,6 +18,7 @@ export class PaginateComponent implements OnChanges {
     if (newPage >= 1) {
       this.activePage.set(newPage)
       this.pageChange.emit(newPage)
+      window.scrollTo(0, 0); // Scroll to top
     }
   }
   next() {
@@ -25,12 +26,14 @@ export class PaginateComponent implements OnChanges {
     if (newPage <= this.numberOfPage.length) {
       this.activePage.set(newPage)
       this.pageChange.emit(newPage)
+      window.scrollTo(0, 0); // Scroll to top
     }
   }
   paginate(event: MouseEvent, page: number) {
     event.preventDefault()
     this.activePage.set(page);
     this.pageChange.emit(page);
+    window.scrollTo(0, 0); // Scroll to top
   }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['totalPost']) {

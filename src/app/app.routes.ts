@@ -2,14 +2,18 @@ import { Routes } from '@angular/router';
 // import { authGuard } from './services/auth.guard';
 import { PageNotFound } from './pages/page-not-found/page-not-found';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { Dashboard } from './pages/dashboard/dashboard';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
 export const routes: Routes = [
     {
         path: '',
-        loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
+        component: Dashboard
+        // loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
     },
     {
         path: 'dashboard',
-        loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
+        component: Dashboard
+        // loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
     },
     {
         path: 'authors',
@@ -23,7 +27,8 @@ export const routes: Routes = [
     },
     {
         path: 'create-post',
-        loadComponent: () => import('./pages/create-post/create-post.component').then(m => m.CreatePostComponent),
+        component: CreatePostComponent,
+        // loadComponent: () => import('./pages/create-post/create-post.component').then(m => m.CreatePostComponent),
         canActivate: [AuthGuard]
     },
     { path: '**', component: PageNotFound }
